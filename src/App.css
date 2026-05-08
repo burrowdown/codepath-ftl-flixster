@@ -1,28 +1,134 @@
+/* Layout */
+
 .App {
   text-align: center;
+  display: grid;
+  margin-bottom: 10rem;
 }
 
-.App-header {
-  background-color: #282c34;
+nav {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  background-color: var(--nav-background);
   align-items: center;
-  justify-content: space-evenly;
-  color: white;
-  padding: 20px;
+  color: var(--primary-background);
+  padding: 1rem 0;
+  font-weight: 900;
+  gap: 1rem;
 }
 
-@media (max-width: 600px) {
-  .movie-card {
-    width: 100%;
+h1 {
+  margin: 0;
+  background-color: var(--nav-background);
+  color: var(--primary-background);
+  padding-top: 0.5rem;
+}
+
+footer {
+  background-color: var(--nav-background);
+  color: var(--primary-background);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 5;
+}
+
+/* Navigation */
+.app-nav {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  color: var(--nav-text);
+  align-items: center;
+}
+
+.app-nav .active {
+  text-decoration: underline;
+}
+
+nav span:hover {
+  color: var(--button-hover);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+/* Search Bar */
+.search-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.clear-button {
+  background-color: #644060;
+}
+
+@media screen and (max-width: 900px) {
+  .search-wrapper input {
+    border-radius: 8px 0 0 8px;
   }
 
-  .search-bar {
-    flex-direction: column;
-    gap: 10px;
+  .clear-button {
+    border-radius: 0 8px 8px 0;
+    margin: 0;
   }
 
-  .search-bar form {
+  .search-button {
+    border-radius: 0;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .App {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto 1fr;
+    height: 100vh;
+    grid-template-areas:
+      "header header"
+      "nav main"
+      "footer footer";
+  }
+
+  header {
+    grid-area: header;
+  }
+  main {
+    grid-area: main;
+  }
+  footer {
+    grid-area: footer;
+  }
+
+  nav {
+    grid-area: nav;
+    display: flex;
     flex-direction: column;
+  }
+
+  .app-nav {
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 1rem;
+  }
+
+  .search-wrapper {
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .search {
+    width: 80%;
+  }
+
+  .search-wrapper input {
+    width: 10rem;
+  }
+
+  h1 {
+    padding: 1rem;
   }
 }

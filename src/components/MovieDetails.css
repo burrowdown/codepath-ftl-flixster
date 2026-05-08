@@ -1,0 +1,89 @@
+/* Modal */
+
+.modal-overlay {
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #333b;
+  z-index: 3;
+}
+
+.modal-content {
+  background-color: var(--primary-background);
+  color: var(--nav-background);
+  margin: 5rem auto;
+  padding: 20px;
+  max-width: 40rem;
+  width: calc(100% - 6rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.9rem;
+  gap: 0.5rem;
+  border-radius: 10px;
+}
+
+/* Modal Content */
+
+.modal-content img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.modal-content h2 {
+  font-size: 1.5rem;
+  margin: 0.5rem;
+}
+
+.modal-content .overview {
+  background-color: #fff;
+  padding: 1rem;
+  font-size: 1rem;
+  width: 85%;
+  border-radius: 7px;
+  margin: 0 1rem 1rem 1rem;
+}
+
+.modal-content p {
+  margin: 0;
+}
+
+.modal-content .label {
+  font-weight: 600;
+}
+
+.modal-content a {
+  text-decoration: none;
+  color: #0063cc;
+}
+
+/* Trailer */
+
+.trailer-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 1rem;
+}
+
+.iframe-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* 16:9 aspect ratio  */
+}
+
+.iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  border: 3px solid var(--nav-background);
+  border-radius: 4px;
+}
+
+.close-button {
+  margin-top: 2rem;
+}

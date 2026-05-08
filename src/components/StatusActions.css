@@ -1,0 +1,33 @@
+.status-actions-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3.5rem;
+  height: 1.7rem;
+  background-color: #fffa;
+  border-radius: 0 8px 0 8px;
+  z-index: 2;
+}
+
+.status-actions-wrapper {
+  position: relative;
+}
+
+.status-actions {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 3;
+  padding: 0.1rem;
+}
+
+.status-actions svg {
+  cursor: pointer;
+}
+
+.status-actions svg:hover {
+  color: #555;
+}
