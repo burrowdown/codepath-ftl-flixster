@@ -100,7 +100,7 @@ Deployed Application (optional): [Flixster Deployed Site](https://codepath-ftl-f
 
 ### Walkthrough Video
 
-[Link to walkthrough](https://www.loom.com/share/921fde49694d4490ad6db217b8316e31?sid=08d1e257-a684-4012-95a5-a9be607b8590)
+[Link to walkthrough video](https://www.loom.com/share/6a5e90ecd558478eacfe71004e31fe17)
 
 ### Reflection
 
