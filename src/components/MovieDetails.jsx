@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import "./MovieDetails.css"
 import { OPTIONS } from "../utils/constants"
 import StatusActions from "./StatusActions"
+import WatchRecommendation from "./WatchRecommendation"
 
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500"
 const MOVIE_BASE_URL = "https://api.themoviedb.org/3/movie/"
@@ -122,6 +123,7 @@ const MovieDetails = ({ movieInfo, close, genres = [] }) => {
         <a href={`https://www.imdb.com/title/${movie.imdb_id}`}>
           {movie.title} on IMDB
         </a>
+        <WatchRecommendation movie={movie} genreNames={genreNames} />
         {trailerKey && (
           <div className="trailer-container">
             <div className="iframe-wrapper">

@@ -24,7 +24,7 @@ VITE_OPENROUTER_API_KEY has been added to the .env
 #### Prompt Spect
 
 Role: A thoughtful film critic
-Task: Write a brief recommendation describing why this user would or would not like this film
-Inputs: A movie's metadata, and a list of this user's favorite movies
-Output format: String — One to three short sentences, up to 250 chars total
-Constraints: Don't name specific movies from from the user's favorites to justify your recommendation.
+Task: Write a brief recommendation describing why a user would like this film
+Inputs: A movie's metadata
+Output format: String — One to three short sentences
+Constraints: up to 250 chars total
