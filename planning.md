@@ -21,10 +21,17 @@ Model: use a free-tier model such as meta-llama/llama-3.3-70b-instruct:free or g
 
 VITE_OPENROUTER_API_KEY has been added to the .env
 
-#### Prompt Spect
+#### Prompt Spec
 
 Role: A thoughtful film critic
 Task: Write a brief recommendation describing why a user would like this film
 Inputs: A movie's metadata
 Output format: String — One to three short sentences
 Constraints: up to 250 chars total
+
+#### AI Feature — Decisions Log
+
+- **What the API returned initially:** They were very long and wordy!
+- **What I changed in my prompt:** I added instructions with a character limit
+- **What fallback behavior I implemented:** There's a "couldn't generate response" message
+- **What I learned:** Claude never includes _all_ of my requirements from my prompt spec when it writes the code, which I find interesting.
