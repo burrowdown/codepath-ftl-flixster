@@ -8,6 +8,8 @@ const MovieCard = ({
   config,
   alreadyFavorited,
   alreadyWatched,
+  toggleFavorite,
+  toggleWatched,
 }) => {
   if (!movie) return null
 
@@ -19,11 +21,7 @@ const MovieCard = ({
     <div
       className="movie-card status-actions-wrapper"
       onClick={() => {
-        setCurrentMovie({
-          id: movie.id,
-          isFavorite: alreadyFavorited,
-          isWatched: alreadyWatched,
-        })
+        setCurrentMovie({ id: movie.id })
       }}
     >
       <div className="status-actions">
@@ -31,6 +29,8 @@ const MovieCard = ({
           movie={movie}
           alreadyFavorited={alreadyFavorited}
           alreadyWatched={alreadyWatched}
+          toggleFavorite={toggleFavorite}
+          toggleWatched={toggleWatched}
         />
       </div>
       <img src={url} alt={`poster for ${movie.title}`} />

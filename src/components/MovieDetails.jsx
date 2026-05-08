@@ -7,7 +7,15 @@ import WatchRecommendation from "./WatchRecommendation"
 const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500"
 const MOVIE_BASE_URL = "https://api.themoviedb.org/3/movie/"
 
-const MovieDetails = ({ movieInfo, close, genres = [] }) => {
+const MovieDetails = ({
+  movieInfo,
+  close,
+  genres = [],
+  isFavorite,
+  isWatched,
+  toggleFavorite,
+  toggleWatched,
+}) => {
   if (!movieInfo) return null
 
   const [movie, setMovie] = useState(null)
@@ -95,9 +103,11 @@ const MovieDetails = ({ movieInfo, close, genres = [] }) => {
         <div className="status-actions-wrapper">
           <div className="status-actions">
             <StatusActions
-              alreadyFavorited={movieInfo.isFavorite}
-              alreadyWatched={movieInfo.isWatched}
+              alreadyFavorited={isFavorite}
+              alreadyWatched={isWatched}
               movie={movie}
+              toggleFavorite={toggleFavorite}
+              toggleWatched={toggleWatched}
             />
           </div>
           <img

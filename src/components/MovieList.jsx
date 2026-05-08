@@ -4,15 +4,22 @@ import "./MovieList.css"
 import { OPTIONS } from "../utils/constants"
 import { filterAndSort } from "../utils/utils"
 
-const MovieList = ({ sortBy, searchTerm, currentPage, setCurrentMovie }) => {
+const MovieList = ({
+  sortBy,
+  searchTerm,
+  currentPage,
+  setCurrentMovie,
+  favorites,
+  watched,
+  toggleFavorite,
+  toggleWatched,
+}) => {
   const [movies, setMovies] = useState([])
   const [moviesToDisplay, setMoviesToDisplay] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [page, setPage] = useState(1)
   const [tmdbConfig, setTmdbConfig] = useState(null)
-  const [favorites, setFavorites] = useState([])
-  const [watched, setWatched] = useState([])
   const scrollPosition = useRef(0)
 
   const BASE_URL = "https://api.themoviedb.org/3/movie/now_playing?"
@@ -50,53 +57,25 @@ const MovieList = ({ sortBy, searchTerm, currentPage, setCurrentMovie }) => {
     }
   }, [loading])
 
-  // reset moviesToDisplay when navigating between pages
-  useEffect(() => {
-    if (currentPage === "now-playing") setMoviesToDisplay(movies)
-    if (currentPage === "favorites") setMoviesToDisplay(favorites)
-    if (currentPage === "watched") setMoviesToDisplay(watched)
-  }, [currentPage])
-
-  // Filter and sort movies based on search term and sort criteria
+  // Filter and sort movies based on the active tab, search, and sort criteria
   useEffect(() => {
     let theseMovies = movies
     if (currentPage === "favorites") theseMovies = favorites
     if (currentPage === "watched") theseMovies = watched
     setMoviesToDisplay(filterAndSort(theseMovies, sortBy, searchTerm))
-  }, [movies, sortBy, searchTerm])
+  }, [movies, sortBy, searchTerm, favorites, watched, currentPage])
 
   useEffect(() => {
-    // get tmdb config to get the base URL
     const fetchConfig = async () => {
       const url = "https://api.themoviedb.org/3/configuration"
       const response = await fetch(url, OPTIONS)
       const configData = await response.json()
       setTmdbConfig(configData)
     }
-    // get favorites
-    const fetchFavorites = async () => {
-      const url = `https://api.themoviedb.org/3/account/${
-        import.meta.env.VITE_ACCOUNT_ID
-      }/favorite/movies`
-      const response = await fetch(url, OPTIONS)
-      const favoritesData = await response.json()
-      setFavorites(favoritesData.results)
-    }
-    // get watchlist
-    const fetchWatched = async () => {
-      const url = `https://api.themoviedb.org/3/account/${
-        import.meta.env.VITE_ACCOUNT_ID
-      }/watchlist/movies`
-      const response = await fetch(url, OPTIONS)
-      const watchedData = await response.json()
-      setWatched(watchedData.results)
-    }
     fetchConfig()
-    fetchFavorites()
-    fetchWatched()
   }, [])
 
-  if (loading) {
+  if (loading && movies.length === 0) {
     return (
       <div className="loading">
         Loading...
@@ -121,12 +100,18 @@ const MovieList = ({ sortBy, searchTerm, currentPage, setCurrentMovie }) => {
             config={tmdbConfig}
             alreadyFavorited={favorites.some((m) => m.id === movie.id)}
             alreadyWatched={watched.some((m) => m.id === movie.id)}
+            toggleFavorite={toggleFavorite}
+            toggleWatched={toggleWatched}
           />
         ))}
       </div>
       {currentPage === "now-playing" && (
-        <button onClick={loadMore} className="load-more-button">
-          Load More
+        <button
+          onClick={loadMore}
+          className="load-more-button"
+          disabled={loading}
+        >
+          {loading ? "Loading..." : "Load More"}
         </button>
       )}
     </>
