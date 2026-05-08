@@ -1,10 +1,10 @@
 ## Unit Assignment: Flixster
 
-Submitted by: Danny Burrow
+Submitted by: **Danny Burrow**
 
-Estimated time spent: **10** hours spent in total
+Estimated time spent: **3** hours spent in total (to update for this year)
 
-Deployed Application (**required**): [Flixster Deployed Site](https://danny-burrow-codepath-meta-flixster.onrender.com)
+Deployed Application (optional): [Flixster Deployed Site](https://codepath-ftl-flixster.onrender.com/)
 
 ### Application Features
 
@@ -16,8 +16,8 @@ Deployed Application (**required**): [Flixster Deployed Site](https://danny-burr
   - [x] For each movie displayed, users can see the movie's:
     - [x] Title
     - [x] Poster image
-    - [x] Votes
-  - [x] Users can load more current movies by clicking a button at the bottom of the list, which automatically updates page with new movies (no reloading by clicking the browser's refresh button).
+    - [x] Vote average
+  - [x] Users can load more current movies by clicking a button which adds more movies to the grid without reloading the entire page.
 - [x] **Search Functionality**
   - [x] Users can use a search bar to search for movies by title.
   - [x] The search bar should include:
@@ -28,7 +28,8 @@ Deployed Application (**required**): [Flixster Deployed Site](https://danny-burr
     - [x] Presses the Enter key
     - [x] Clicks the Submit/Search button
   - [x] Users can click the Clear button. When clicked:
-    - [x] Most recent search results are cleared from the text input field and the grid view and all current movies are displayed in a grid view
+    - [x] All text in the text input field is deleted
+    - [x] The most recent search results are cleared from the text input field and the grid view and all current movies are displayed in a grid view
 - [x] **Design Features**
   - [x] Website implements all of the following accessibility features:
     - [x] Semantic HTML
@@ -51,23 +52,21 @@ Deployed Application (**required**): [Flixster Deployed Site](https://danny-burr
     - [x] Drop-down allows movies to be sorted by:
       - [x] Title (alphabetic, A-Z)
       - [x] Release date (chronologically, most recent to oldest)
-      - [x] Rating (descending, highest to lowest)
+      - [x] Vote average (descending, highest to lowest)
     - [x] When a sort option is clicked, movies display in a grid according to selected criterion.
   - [x] Website displays:
     - [x] Header section
     - [x] Banner section
     - [x] Search bar
     - [x] Movie grid
-    - [ ] About section
-    - [ ] Contact section
     - [x] Footer section
-    - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it.
-  - [x] **Deployment**
-  - [x] Website is deployed via Render.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough.
+    - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: To ease the grading process, please use the [color contrast checker](https://webaim.org/resources/contrastchecker/) to demonstrate to the grading team that text and background colors on your website have appropriate contrast. The Contrast Ratio should be above 4.5:1 and should have a green box surrounding it.
 
 #### STRETCH FEATURES
 
+- [x] **Deployment**
+  - [x] Website is deployed via Render.
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS**: For ease of grading, please use the deployed version of your website when creating your walkthrough.
 - [x] **Embedded Movie Trailers**
   - [x] Within the pop-up modal displaying a movie's details, the movie trailer is viewable.
     - [x] When the trailer is clicked, users can play the movie trailer.
@@ -125,6 +124,4 @@ Thought about using React Router just for the page nav stuff, decided to go with
 
 ### Shout out
 
-I used Copilot a bunch, so honestly huge shoutout to whoever made that suggestion last week and finally broke through my resistence. Saved me so much headache.
-
-When I looked at Gabriel's code I saw a bunch of cool ideas I wish I had implemented, but it definitely motivated me to create my utils and move as much logic as I could in there. The components are already cumbersome!
+(from last year) When I looked at Gabriel's code I saw a bunch of cool ideas I wish I had implemented, but it definitely motivated me to create my utils and move as much logic as I could in there. The components are already cumbersome!
